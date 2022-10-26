@@ -1,28 +1,32 @@
-#include <stdio.h>
 #include <argp.h>
-#include "solver.h"
+#include <stdio.h>
+#include <stdbool.h>
 #include "puzzle.h"
+#include "solver.h"
+#include "util.h"
 
 
 int main(int argc, char **argv) {
-	unsigned int p[81];
+	unsigned int p[GRID*GRID], counter;
 	char c;
-	int counter;
 	FILE *fptr;
+	bool solved;
 	counter = 0;
 	(void) argc;
 	fptr = fopen(argv[1], "r");
 	c = 0;
-	while(counter < 81 && c != EOF) {
+	while(counter < GRID * GRID && c != EOF) {
 		c = fgetc(fptr);
 		if (c >= '0' && c <= '9') p[counter++] = c - 48;
 	}
 	fclose(fptr);
-	if (counter != 81) {
-		printf("INVALID FILE");
+	if (counter != GRID * GRID) {
+		debug("INVALID FILE");
 		return 0;
 	}
-	solve_puzzle(p,0);
-	print_puzzle_string(p);
+	solved = solve_puzzle(p,0);
+	if (solved) debug("Puzzle Solved Successfully");
+	else        warn("Puzzle is Invalid");
+	print_puzzle(p);
 	return 0;
 }

@@ -20,7 +20,7 @@ dirs:
 	mkdir -p ./$(BIN)
 
 suzku: $(OBJ)
-	$(CC) -o $(BIN)/suzku $^ $(LDFLAGS)
+	$(CC) -o $(BIN)/$@ $^ $(LDFLAGS)
 
 %.o: %.c
 	$(CC) -o $@ -c $< $(CFLAGS)

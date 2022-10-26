@@ -3,19 +3,16 @@
 #include "puzzle.h"
 #include "solver.h"
 
+
 bool solve_puzzle(unsigned int *puzzle, unsigned int cell) {
 	unsigned int i;
-	if (cell == GRID * GRID) return false;
+	if (cell > GRID * GRID) return true;
 	if (puzzle[cell] != 0) return solve_puzzle(puzzle, cell+1);
-	for (i = 0; i < GRID; i++) {
+	for (i = 0; i < GRID; i++)
 		if (is_valid(puzzle, cell, i+1)) {
 			puzzle[cell] = i + 1;
-			if (is_solved(puzzle) || solve_puzzle(puzzle, cell+1)) return true;
+			if (solve_puzzle(puzzle, cell+1)) return true;
 		}
-	}
-	if (cell == 80) {
-		return true;
-	}
 	puzzle[cell] = 0;
 	return false;
 }
@@ -27,13 +24,18 @@ bool is_valid(unsigned int *puzzle, const unsigned int cell, const unsigned int 
 	x = r - r % CELL;
 	y = c - c % CELL;
 	for (i = 0; i < GRID; i++) {
-		if (puzzle[index(r,i)]                        == number)	return false;
-		if (puzzle[index(i,c)]                        == number)	return false;
-		if (puzzle[index(x + i / CELL, y + i % CELL)] == number)	return false;
+		if (puzzle[index(r,i)]                        == number) return false;
+		if (puzzle[index(i,c)]                        == number) return false;
+		if (puzzle[index(x + i / CELL, y + i % CELL)] == number) return false;
 	}
 	return true;
 }
 
+unsigned int index(const unsigned int row, const unsigned int col) {
+	return row * GRID + col;
+}
+
+#if 0
 bool is_solved(unsigned int *puzzle) {
 	unsigned int i,j,x,y;
 	unsigned int R[GRID + 1], C[GRID + 1], B[GRID + 1];
@@ -53,7 +55,4 @@ bool is_solved(unsigned int *puzzle) {
 	}
 	return true;
 }
-
-unsigned int index(const unsigned int row, const unsigned int col) {
-	return row * GRID + col;
-}
+#endif
