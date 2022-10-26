@@ -1,8 +1,6 @@
 CC      = gcc
-CFLAGS  = -g -std=c89  -ansi -pedantic 
+CFLAGS  = -ggdb -std=c89  -ansi -pedantic 
 CFLAGS += -Wall -Werror -Wextra -Wpedantic -Wstrict-aliasing
-#CFLAGS += -Wno-pointer-arith -Wno-newline-eof -Wno-unused-parameter -Wno-gnu-statement-expression
-#CFLAGS += -Wno-gnu-compound-literal-initializer -Wno-gnu-zero-variadic-macro-arguments
 CFLAGS += -Iinclude
 LDFLAGS  =
 
@@ -11,7 +9,7 @@ OBJ = $(SRC:.c=.o)
 BIN = bin
 
 
-.PHONY: all clean dirs
+.PHONY: all clean
 .SILENT: clean
 
 all: dirs suzku

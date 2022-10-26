@@ -22,3 +22,10 @@ void print_puzzle_string(unsigned int *puzzle) {
 	int i;
 	for (i = 0; i < GRID * GRID; i++) printf("%d", puzzle[i]);
 }
+
+void print_puzzle_json(unsigned int *puzzle) {
+	int i;
+	printf("{\"puzzle\":\"");
+	for (i = 0; i < GRID * GRID; i++) printf("%d", puzzle[i]);
+	printf("\"}");
+}

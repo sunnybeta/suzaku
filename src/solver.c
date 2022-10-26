@@ -4,14 +4,14 @@
 #include "solver.h"
 
 
-bool solve_puzzle(unsigned int *puzzle, unsigned int cell) {
+bool solve(unsigned int *puzzle, unsigned int cell) {
 	unsigned int i;
 	if (cell > GRID * GRID) return true;
-	if (puzzle[cell] != 0) return solve_puzzle(puzzle, cell+1);
+	if (puzzle[cell] != 0) return solve(puzzle, cell+1);
 	for (i = 0; i < GRID; i++)
 		if (is_valid(puzzle, cell, i+1)) {
 			puzzle[cell] = i + 1;
-			if (solve_puzzle(puzzle, cell+1)) return true;
+			if (solve(puzzle, cell+1)) return true;
 		}
 	puzzle[cell] = 0;
 	return false;
