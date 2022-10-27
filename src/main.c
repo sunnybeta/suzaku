@@ -5,10 +5,10 @@
 #include "util.h"
 #include "read.h"
 
-const char *argp_program_version     = "suzku 1.0";
+const char *argp_program_version     = "Suzaku 1.0";
 const char *argp_program_bug_address = "<sunnybeta@protonmail.com>";
 const char args_doc[]               = "[FILE|PUZZLE_STRING]";
-const char doc[]                    = "suzku -- A simple program to solve a SuDoKu puzzle";
+const char doc[]                    = "suzaku -- SuDoKu solver";
 
 struct argp_option options[] = {
 	{"json",     'j', 0,               0, "Print a JSON formatted output", 0},

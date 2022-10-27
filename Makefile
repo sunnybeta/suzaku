@@ -11,14 +11,14 @@ GCH = $(HDR:.h=.h.gch)
 
 .PHONY: all dirs clean
 
-all: headers dirs suzku
+all: dirs headers suzaku
 
 headers: $(GCH)
 
 dirs:
 	mkdir -p ./$(BIN)
 
-suzku: $(OBJ)
+suzaku: $(OBJ)
 	$(CC) -o $(BIN)/$@ $^
 
 %.o: %.c
