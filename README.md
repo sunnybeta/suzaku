@@ -13,21 +13,13 @@ cd Suzaku
 make
 ```
 
-## Usage
+## Options
 
 ```
-Usage: suzaku [OPTION...] [FILE|PUZZLE_STRING]
-suzaku -- SuDoKu solver
-
-  -j, --json                 Print a JSON formatted output
-  -f, --filename=FILENAME    Get puzzle from file
-  -s, --string=PUZZLE STRING Input string
-  -?, --help                 Give this help list
-      --usage                Give a short usage message
-  -V, --version              Print program version
-
-Mandatory or optional arguments to long options are also mandatory or optional
-for any corresponding short options.
-
-Report bugs to <sunnybeta@protonmail.com>.
+-j, --json                 Print a JSON formatted output
+-f, --filename=FILENAME    Get puzzle from file
+-s, --string=PUZZLE STRING Input string
+-?, --help                 Give this help list
+    --usage                Give a short usage message
+-V, --version              Print program version
 ```
