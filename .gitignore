@@ -3,3 +3,4 @@ bin/
 
 # Object Files
 *.o
+*.h.gch

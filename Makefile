@@ -1,27 +1,31 @@
 CC      = gcc
 CFLAGS  = -ggdb -std=c89  -ansi -pedantic 
 CFLAGS += -Wall -Werror -Wextra -Wpedantic -Wstrict-aliasing
-CFLAGS += -Iinclude
-LDFLAGS  =
 
 SRC = $(wildcard src/*.c)
 OBJ = $(SRC:.c=.o)
 BIN = bin
+HDR = $(wildcard src/*.h)
+GCH = $(HDR:.h=.h.gch)
 
 
-.PHONY: all clean
-.SILENT: clean
+.PHONY: all dirs clean
 
-all: dirs suzku
+all: headers dirs suzku
+
+headers: $(GCH)
 
 dirs:
 	mkdir -p ./$(BIN)
 
 suzku: $(OBJ)
-	$(CC) -o $(BIN)/$@ $^ $(LDFLAGS)
+	$(CC) -o $(BIN)/$@ $^
 
 %.o: %.c
-	$(CC) -o $@ -c $< $(CFLAGS)
+	$(CC) $(CFLAGS) -c $< -o $@ 
+
+%.h.gch: %.h
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:
-	rm -rf $(BIN) $(OBJ)
+	rm -rf $(BIN) $(OBJ) $(GCH)

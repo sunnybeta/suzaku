@@ -1,8 +1,6 @@
 #ifndef PUZZLE_H
 #define PUZZLE_H
 
-#include <stdbool.h>
-
 #define CELL 3
 #define GRID (CELL * CELL)
 
