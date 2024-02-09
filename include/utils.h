@@ -1,5 +1,5 @@
-#ifndef UTIL_H
-#define UTIL_H
+#ifndef UTILS_H
+#define UTILS_H
 
 #define ANSI_BLACK   "\x1b[30m"
 #define ANSI_RED     "\x1b[31m"
@@ -14,4 +14,4 @@ void debug(const char *, ...);
 void error(const char *, ...);
 void warn (const char *, ...);
 
-#endif /* UTIL_H */
+#endif /* UTILS_H */

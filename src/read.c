@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "util.h"
+#include "utils.h"
 #include "read.h"
 #include "puzzle.h"
 

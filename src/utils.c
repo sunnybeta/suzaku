@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
-#include "util.h"
+#include "utils.h"
 
 void debug(const char *msg, ...) {
 	va_list args;

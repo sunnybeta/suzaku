@@ -2,7 +2,7 @@
 #include "arguments.h"
 #include "puzzle.h"
 #include "solver.h"
-#include "util.h"
+#include "utils.h"
 #include "read.h"
 
 const char *argp_program_version     = "Suzaku 1.0";
